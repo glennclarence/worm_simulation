@@ -1,0 +1,1 @@
+int2 MAX_TRANSLATION=make_int2(1,1);
