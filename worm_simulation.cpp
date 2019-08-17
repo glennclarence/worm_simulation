@@ -3,8 +3,6 @@
 
 namespace py = pybind11;
 
-//using namespace WormSpace;
-
 
 PYBIND11_MODULE(worm_simulation, m) {
         m.doc() = "Class to simulate a 3 dimensional worm moving inside a box."; 

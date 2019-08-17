@@ -78,30 +78,14 @@ struct Worm
         {
             return false;
         }
+        
         for (int i = 0; i < m_size; ++i)
         {
             if (i != jointIdx)
             {
-                if (i > 0 && i < m_size - 1)
+                if (m_joints[i].isAtPosition(check_position))
                 {
-                    if (m_joints[i - 1].isAtPosition(check_position) || m_joints[i + 1].isAtPosition(check_position))
-                    {
-                        return false;
-                    }
-                }
-                else if (i == 0)
-                {
-                    if (m_joints[0].isAtPosition(check_position))
-                    {
-                        return false;
-                    }
-                }
-                else if (i == m_size - 1)
-                {
-                    if (m_joints[m_size - 1].isAtPosition(check_position))
-                    {
-                        return false;
-                    }
+                    return false;
                 }
             }
         }
