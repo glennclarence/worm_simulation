@@ -8,7 +8,7 @@ namespace py = pybind11;
 
 PYBIND11_MODULE(worm_simulation, m) {
     py::class_<WormSpace::WormSimulation>(m, "worm_simulation")
-        .def(py::init<int, int, int,int>())
+        .def(py::init<int, int>())
         .def("run", &WormSpace::WormSimulation::run,
          py::return_value_policy::move);
 }

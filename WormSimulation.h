@@ -11,7 +11,7 @@ struct WormSimulation{
 WormSimulation(): m_worm()
 {}
 
-WormSimulation(uint worm_size, uint grid_size_x, uint grid_size_y, uint grid_size_z): m_worm(worm_size,make_int3(grid_size_x,grid_size_y, grid_size_z) ){}
+WormSimulation(uint worm_size, uint box_size): m_worm(worm_size,make_int3(box_size,box_size, box_size) ){}
 
 
 py::array_t<double> run(uint num_steps, uint increments, bool choose_random_joints)
