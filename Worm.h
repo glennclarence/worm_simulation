@@ -48,7 +48,6 @@ struct Worm
         Pos check_position = m_joints[jointIdx].getPos() + translation;
         if (jointIdx > 0 && jointIdx < m_size - 1)
         {
-            //std::cout <<jointIdx<<" "<<translation.x << " " <<translation.y<<" " << (int)  m_joints[jointIdx - 1].isInRange(check_position)<< " "<<m_joints[jointIdx + 1].isInRange(check_position)<< std::endl;
             return m_joints[jointIdx - 1].isInRange(check_position) && m_joints[jointIdx + 1].isInRange(check_position);
         }
         else if (jointIdx == 0)
@@ -78,7 +77,7 @@ struct Worm
         {
             return false;
         }
-        
+
         for (int i = 0; i < m_size; ++i)
         {
             if (i != jointIdx)
@@ -97,7 +96,6 @@ struct Worm
     {
         if (translationIsPossible(jointIdx, translation))
         {
-            //std::cout <<"t "<<translation.x << " " <<translation.y<< " " <<translation.z<<std::endl;
             m_joints[jointIdx].translate(translation);
         }
     }
@@ -105,11 +103,9 @@ struct Worm
     inline Pos getRandomTranslation()
     {
         uint random_number = m_uni(m_rng);
-        //std::cout<< "rnd" << random_number<<" "<< random_number % 3<<std::endl;
         uint x = random_number % 3;
         uint y = ( random_number / 3 ) % 3;
         uint z = random_number / ( 9 );
-        //return make_int3( (random_number / 3) - 1,  (random_number % 3)-1);
         return make_int3( x - 1, y - 1, z - 1);
 
     }
