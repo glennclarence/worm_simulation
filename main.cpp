@@ -58,18 +58,17 @@ int wormsize = 100;
 
 int main()
 {
-    Worm worm(4, make_int2(10, 10));
+    Worm worm(4, make_int3(10, 10,10));
 
     for (int i = 0; i < 3; ++i)
     {
         std::cout << worm[i].getPos().x << " " << worm[i].getPos().y << std::endl;
     }
 
-
     for ( int i = 0; i< 10; ++i)
     {
         worm.translateJointbyIndex(1);
-        std::cout << worm[1].getPos().x << " " << worm[1].getPos().y << std::endl;
+        std::cout << worm[1].getPos().x << " " << worm[1].getPos().y << " " << worm[1].getPos().z << std::endl;
     }
 
     return 0;

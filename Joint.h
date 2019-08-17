@@ -5,20 +5,22 @@
 #include "helper_math.h"
 #include "helper_math_worm.h"
 #include <iostream>
+#include "config.h"
+
 namespace WormSpace
 {
 
 struct Joint
 {
-    using Pos = int2;
-    Joint() : m_pos(make_int2(0, 0)) {}
+    using Pos = int3;
+    Joint() : m_pos(make_int3(0,0, 0)) {}
 
     Joint(Pos position) : m_pos(position) {}
 
     inline bool isInRange(Pos position)
     {
         Pos d_pos = (m_pos - position);
-        return dot(d_pos, d_pos) <= 2;
+        return dot(d_pos, d_pos) <= MAX_DISTANCE;
     }
 
     inline bool isAtPosition(Pos position)
